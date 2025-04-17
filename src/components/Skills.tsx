@@ -45,6 +45,8 @@ const skillIcons: { [key: string]: string } = {
   "Handlebars": "devicon-handlebars-plain",
   "Jest": "devicon-jest-plain",
   "Vite": "devicon-vitejs-plain",
+  "Vscode": "devicon-vscode-plain",
+  "Neovim": "devicon-neovim-plain",
 
   // Design
   "Figma": "devicon-figma-plain",

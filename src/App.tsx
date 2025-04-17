@@ -128,21 +128,23 @@ function App() {
 
       default:
         return (
-          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <>
             <Hero />
             <Experience onViewDetails={handleViewExperience} />
             <Projects onViewDetails={handleViewProject} />
             <Skills />
             <Contact />
-          </ThemeProvider>
+          </>
         );
     }
   };
 
   return (
-    <Layout>
-      {renderContent()}
-    </Layout>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Layout>
+        {renderContent()}
+      </Layout>
+    </ThemeProvider>
   );
 }
 

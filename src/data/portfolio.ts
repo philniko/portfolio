@@ -165,7 +165,9 @@ export const skillsData = {
     "Cypress",
     "Handlebars",
     "Jest",
-    "Vite"
+    "Vite",
+    "Vscode",
+    "Neovim"
   ],
   "Design": [
     "Figma",
