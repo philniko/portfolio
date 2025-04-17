@@ -133,14 +133,16 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
               </div>
 
               <div className="flex flex-col gap-3">
-                <Button
-                  className="w-full"
-                  asChild
-                >
-                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                    View Live Demo
-                  </a>
-                </Button>
+                {project.demoLink &&
+                  <Button
+                    className="w-full"
+                    asChild
+                  >
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                      View Live Demo
+                    </a>
+                  </Button>
+                }
 
                 <Button
                   className="w-full"

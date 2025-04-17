@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
   const [view, setView] = useState<string>("home");
@@ -127,13 +128,13 @@ function App() {
 
       default:
         return (
-          <>
+          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Hero />
             <Experience onViewDetails={handleViewExperience} />
             <Projects onViewDetails={handleViewProject} />
             <Skills />
             <Contact />
-          </>
+          </ThemeProvider>
         );
     }
   };

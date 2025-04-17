@@ -103,7 +103,6 @@ export const projects = [
     • Deployed with Vercel`,
     image: "/images/projects/portfolio-project.jpg",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
-    demoLink: "https://example.com/portfolio",
     githubLink: "https://github.com/philniko/portfolio"
   },
   {
