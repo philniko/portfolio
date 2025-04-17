@@ -47,23 +47,21 @@ interface ExperienceProps {
 }
 
 export default function Experience({ onViewDetails }: ExperienceProps) {
-  // Removed loading state as we'll handle it in the detail view
-
-  // Immediately navigate to the detail view
-  const handleViewDetails = (id: string) => {
-    onViewDetails(id);
-  };
+  // Determine the grid layout based on the number of experiences
+  const gridLayoutClass = experiences.length < 3
+    ? "grid grid-cols-1 md:grid-cols-2 justify-center"
+    : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
 
   return (
     <section id="experience" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Work Experience</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`${gridLayoutClass} gap-6`}>
           {experiences.map((exp) => (
             <ExperienceCard
               key={exp.id}
               experience={exp}
-              onViewDetails={handleViewDetails}
+              onViewDetails={onViewDetails}
             />
           ))}
         </div>

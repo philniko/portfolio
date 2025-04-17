@@ -27,54 +27,39 @@ export const navLinks = [
 export const experiences = [
   {
     id: "exp1",
-    title: "Senior Developer",
-    company: "Tech Company Inc.",
-    period: "Jan 2022 - Present",
-    location: "San Francisco, CA",
-    description: "Led development of key features for the company's main product. Mentored junior developers and improved deployment processes.",
-    fullDescription: `Led development of key features for the company's main product. Mentored junior developers and improved deployment processes.
+    title: "Software Engineering Trainee",
+    company: "Datex",
+    period: "May 2024 - May 2025",
+    location: "Montreal, Canada",
+    description: "Developed a scalable Warehouse Management System (WMS) application-building platform using cutting-edge technologies.",
+    fullDescription: `Played a pivotal role in developing a comprehensive Warehouse Management System (WMS) application-building platform, demonstrating full-stack expertise and advanced problem-solving skills.
     
-    Key Responsibilities:
-    • Led a team of 5 developers to implement new features and maintain existing systems
-    • Reduced build times by 40% by optimizing webpack configuration
-    • Implemented CI/CD pipeline resulting in more reliable deployments
-    • Conducted technical interviews and onboarded new team members
-    • Collaborated with product managers to refine requirements and plan sprints`,
-    skills: ["React", "TypeScript", "Node.js", "AWS", "Docker", "CI/CD"]
+    Key Responsibilities and Achievements:
+    • Spearheaded the development of a custom infinite and virtual scrolling grid, optimizing performance for handling large datasets efficiently
+    • Engineered a complex SQL migration script with advanced paging techniques, successfully transferring 10,000+ rows while minimizing system downtime
+    • Utilized .NET technologies to enhance application performance and scalability
+    • Collaborated closely with cross-functional teams including Product Design, UX, and QA to deliver high-quality software releases
+    • Implemented innovative solutions to improve user experience and system functionality
+    • Gained deep expertise in enterprise-level software development methodologies`,
+    skills: [".NET", "C#", "SQL", "Angular", "TypeScript", "Handlebars", "Agile", "Full-Stack Development, DevOps"]
   },
   {
     id: "exp2",
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    period: "Mar 2020 - Dec 2021",
-    location: "Austin, TX",
-    description: "Developed responsive web applications for various clients. Improved site performance and implemented modern UI patterns.",
-    fullDescription: `Developed responsive web applications for various clients. Improved site performance and implemented modern UI patterns.
+    title: "Software Engineering Intern",
+    company: "Datex",
+    period: "Sep 2023 - Dec 2023",
+    location: "Montreal, Canada",
+    description: "Contributed to the development of a sophisticated Warehouse Management System application-building platform.",
+    fullDescription: `Delivered impactful contributions to the development of a cutting-edge Warehouse Management System (WMS) application-building platform, showcasing strong front-end development skills and innovative problem-solving.
     
-    Key Responsibilities:
-    • Built responsive web applications for 10+ clients using modern web technologies
-    • Improved site performance scores by an average of 25 points on Lighthouse
-    • Implemented design systems for consistent UI/UX across multiple projects
-    • Collaborated with designers to ensure faithful implementation of designs
-    • Maintained and updated legacy applications while improving their codebase`,
-    skills: ["JavaScript", "CSS", "Vue.js", "SCSS", "Webpack", "Jest"]
-  },
-  {
-    id: "exp3",
-    title: "Junior Developer",
-    company: "Startup XYZ",
-    period: "Jun 2018 - Feb 2020",
-    location: "Remote",
-    description: "Assisted in building the company's web application from scratch. Learned various technologies and best practices.",
-    fullDescription: `Assisted in building the company's web application from scratch. Learned various technologies and best practices.
-    
-    Key Responsibilities:
-    • Contributed to building the MVP of the company's main web application
-    • Implemented UI components according to design specifications
-    • Fixed bugs and improved application performance
-    • Participated in code reviews and adopted best practices
-    • Learned and applied new technologies on the job`,
-    skills: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Git"]
+    Key Responsibilities and Achievements:
+    • Developed a custom icon picker component to enhance software usability and user interface
+    • Worked extensively with Angular to create intuitive and responsive web applications
+    • Operated effectively in an Agile development environment, participating in feature design, implementation, and testing
+    • Demonstrated strong collaboration skills within a dynamic product development team
+    • Gained comprehensive exposure to enterprise software development practices and methodologies
+    • Contributed to improving the overall user experience of the WMS platform`,
+    skills: ["Angular", "TypeScript", "Handlebars", "Front-End Development", "UI/UX", "Agile Methodologies", "Web Development", "DevOps"]
   }
 ];
 
@@ -139,27 +124,6 @@ export const projects = [
     demoLink: "https://example.com/task-app",
     githubLink: "https://github.com/philniko/retropomodoro"
   },
-  {
-    id: "proj4",
-    title: "Weather Dashboard",
-    description: "A weather dashboard that shows current conditions and forecasts for any location.",
-    fullDescription: `A weather dashboard application that provides current weather conditions and forecasts for any location worldwide.Users can search for cities, view detailed weather information, and save favorite locations for quick access.The app uses the OpenWeather API to fetch accurate weather data.
-
-    Key Features:
-    • Location search with autocomplete
-    • Current weather conditions display
-    • 5 - day forecast with hourly breakdowns
-    • Interactive weather maps
-    • Historical weather data charts
-    • Unit conversion(Celsius / Fahrenheit)
-    • Favorite locations storage
-    • Weather alerts and notifications
-    • Responsive design for all devices`,
-    image: "/weather-project.jpg",
-    technologies: ["JavaScript", "HTML5", "CSS3", "OpenWeather API", "Chart.js", "LocalStorage", "Geolocation API"],
-    demoLink: "https://example.com/weather",
-    githubLink: "https://github.com/yourusername/weather-dashboard"
-  }
 ];
 
 // Skills Data
@@ -171,50 +135,43 @@ export const skillsData = {
     "TypeScript",
     "React",
     "Next.js",
-    "Vue.js",
     "Angular",
     "Tailwind CSS",
-    "SASS/SCSS",
-    "Framer Motion"
   ],
   "Backend": [
     "Node.js",
     "Express",
     "Django",
-    "Flask",
-    "GraphQL",
     "REST API",
-    "PHP",
+    ".NET",
+    "Entity Framework",
+    "C#",
     "Java",
-    "Spring Boot"
+    "Python",
+    "C",
   ],
   "Database": [
     "MongoDB",
     "PostgreSQL",
     "MySQL",
-    "Redis",
+    "SQLite",
     "Firebase",
-    "Supabase"
   ],
   "DevOps & Tools": [
     "Git",
     "GitHub",
     "Docker",
-    "AWS",
     "Vercel",
-    "Netlify",
     "CI/CD",
+    "Cypress",
+    "Handlebars",
     "Jest",
-    "Webpack",
     "Vite"
   ],
   "Design": [
     "Figma",
-    "Adobe XD",
     "Photoshop",
     "Illustrator",
-    "UI/UX",
-    "Responsive Design"
   ]
 };
 

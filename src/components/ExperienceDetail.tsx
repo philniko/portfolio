@@ -85,7 +85,7 @@ export default function ExperienceDetail({ id, onBack, loading = false }: Experi
         </CardHeader>
         <CardContent>
           <div className="whitespace-pre-line mb-6">
-            {experience.description}
+            {experience.fullDescription}
           </div>
 
           <div className="mt-6">
