@@ -6,12 +6,11 @@ export const personalInfo = {
   location: "Montreal, QC",
   bio: "I build exceptional digital experiences with modern technologies. Focused on creating intuitive, accessible, and performant web applications.",
   avatarInitials: "PN",
-  avatarImage: "/your-profile-photo.jpg",
+  avatarImage: "/images/profile-picture.jpg",
   resumeUrl: "/resume.pdf",
   socialLinks: {
     github: "https://github.com/philniko",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    linkedin: "https://www.linkedin.com/in/philippenikolov/",
   }
 };
 
@@ -223,5 +222,5 @@ export const skillsData = {
 
 // Footer Information
 export const footerInfo = {
-  copyright: `© ${new Date().getFullYear()} John Doe. All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} Philippe Nikolov. All rights reserved.`
 };

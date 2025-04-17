@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { personalInfo, footerInfo } from "@/data/portfolio";
 
 export default function Footer() {
@@ -26,11 +26,6 @@ export default function Footer() {
             <Button variant="ghost" size="icon" aria-label="LinkedIn" asChild>
               <a href={personalInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
                 <Linkedin className="size-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" aria-label="Twitter" asChild>
-              <a href={personalInfo.socialLinks.twitter} target="_blank" rel="noopener noreferrer">
-                <Twitter className="size-5" />
               </a>
             </Button>
           </div>

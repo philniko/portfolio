@@ -6,6 +6,7 @@ import ExperienceDetail from "./components/ExperienceDetail";
 import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
 import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 
 function App() {
   const [view, setView] = useState<string>("home");
@@ -103,6 +104,7 @@ function App() {
             <Experience onViewDetails={handleViewExperience} />
             <Projects onViewDetails={handleViewProject} />
             <Skills />
+            <Contact />
           </>
         );
     }
