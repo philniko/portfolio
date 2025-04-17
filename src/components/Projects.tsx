@@ -15,33 +15,14 @@ import { projects } from "@/data/portfolio";
 interface ProjectCardProps {
   project: typeof projects[0];
   onViewDetails: (id: string) => void;
-  loading?: boolean;
 }
 
-function ProjectCard({ project, onViewDetails, loading = false }: ProjectCardProps) {
-  if (loading) {
-    return (
-      <Card className="overflow-hidden">
-        <Skeleton className="h-48 w-full" />
-        <CardHeader>
-          <Skeleton className="h-7 w-3/4 mb-2" />
-        </CardHeader>
-        <CardContent>
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-2/3" />
-          <div className="flex flex-wrap gap-2 mt-4">
-            {[1, 2, 3].map(i => (
-              <Skeleton key={i} className="h-6 w-16" />
-            ))}
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Skeleton className="h-9 w-32" />
-        </CardFooter>
-      </Card>
-    );
-  }
+function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
+  // Handle click with prevent default to avoid scrolling issues
+  const handleViewDetailsClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    onViewDetails(id);
+  };
 
   return (
     <Card className="overflow-hidden">
@@ -69,7 +50,7 @@ function ProjectCard({ project, onViewDetails, loading = false }: ProjectCardPro
       <CardFooter>
         <Button
           variant="outline"
-          onClick={() => onViewDetails(project.id)}
+          onClick={(e) => handleViewDetailsClick(e, project.id)}
         >
           View Project
         </Button>
@@ -83,15 +64,10 @@ interface ProjectsProps {
 }
 
 export default function Projects({ onViewDetails }: ProjectsProps) {
-  const [loading, setLoading] = useState(false);
-
-  // Handle view details with loading state
+  // Immediately navigate to the detail view
   const handleViewDetails = (id: string) => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      onViewDetails(id);
-    }, 500);
+    // Just call the passed-in handler directly
+    onViewDetails(id);
   };
 
   return (
@@ -104,7 +80,6 @@ export default function Projects({ onViewDetails }: ProjectsProps) {
               key={project.id}
               project={project}
               onViewDetails={handleViewDetails}
-              loading={loading}
             />
           ))}
         </div>

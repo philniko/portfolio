@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -47,7 +46,7 @@ function SkillCategory({ category, skills, loading = false }: SkillCategoryProps
 }
 
 export default function Skills() {
-  const [loading, setLoading] = useState(false);
+  const loading = false;
 
   return (
     <section id="skills" className="py-16 bg-muted/30">

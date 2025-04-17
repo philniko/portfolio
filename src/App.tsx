@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Layout from "./components/Layout";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
@@ -13,29 +13,43 @@ function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedExperienceId, setSelectedExperienceId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  // Store scroll position before navigation
+  const scrollPositionRef = useRef(0);
 
   // Handle view changes with loading states
   const handleViewChange = (newView: string, id?: string) => {
+    // Store current scroll position
+    scrollPositionRef.current = window.scrollY;
+
+    // Immediately update the view state to navigate to the new page
+    setView(newView);
+
+    // Start loading state for the detail view
     setLoading(true);
 
-    // Change URL hash if home view
-    if (newView === "home") {
+    if (newView === "project-detail" && id) {
+      setSelectedProjectId(id);
+      // Update hash without triggering native scroll behavior
+      history.replaceState(null, "", `#project-${id}`);
+    } else if (newView === "experience-detail" && id) {
+      setSelectedExperienceId(id);
+      // Update hash without triggering native scroll behavior
+      history.replaceState(null, "", `#experience-${id}`);
+    } else if (newView === "home") {
       window.location.hash = "";
     }
 
-    setTimeout(() => {
-      setView(newView);
-
-      if (newView === "project-detail" && id) {
-        setSelectedProjectId(id);
-        window.location.hash = `project-${id}`;
-      } else if (newView === "experience-detail" && id) {
-        setSelectedExperienceId(id);
-        window.location.hash = `experience-${id}`;
+    // Reset scroll to top for detail views
+    requestAnimationFrame(() => {
+      if (newView === "project-detail" || newView === "experience-detail") {
+        window.scrollTo(0, 0);
       }
+    });
 
+    // End loading state after a short delay to show skeleton loading state
+    setTimeout(() => {
       setLoading(false);
-    }, 300);
+    }, 800);
   };
 
   // Handle hash changes and navigation
@@ -64,6 +78,20 @@ function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  // Return to home view with position restoration
+  const handleBackToHome = () => {
+    // Change hash without page jump
+    history.replaceState(null, "", "#");
+
+    // Immediately navigate back to home
+    setView("home");
+
+    // Restore previous scroll position after rendering home view
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollPositionRef.current);
+    });
+  };
+
   // Project view handler
   const handleViewProject = (id: string) => {
     handleViewChange("project-detail", id);
@@ -82,7 +110,7 @@ function App() {
         return (
           <ProjectDetail
             id={selectedProjectId as any}
-            onBack={() => handleViewChange("home")}
+            onBack={handleBackToHome}
             loading={loading}
           />
         );
@@ -92,7 +120,7 @@ function App() {
         return (
           <ExperienceDetail
             id={selectedExperienceId as any}
-            onBack={() => handleViewChange("home")}
+            onBack={handleBackToHome}
             loading={loading}
           />
         );

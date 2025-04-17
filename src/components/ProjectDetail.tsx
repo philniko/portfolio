@@ -135,23 +135,21 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
               <div className="flex flex-col gap-3">
                 <Button
                   className="w-full"
-                  as="a"
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  asChild
                 >
-                  View Live Demo
+                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                    View Live Demo
+                  </a>
                 </Button>
 
                 <Button
                   className="w-full"
                   variant="outline"
-                  as="a"
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  asChild
                 >
-                  View Source Code
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                    View Source Code
+                  </a>
                 </Button>
 
                 <Button

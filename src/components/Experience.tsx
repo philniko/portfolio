@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,34 +7,19 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { experiences } from "@/data/portfolio";
 
 interface ExperienceCardProps {
   experience: typeof experiences[0];
   onViewDetails: (id: string) => void;
-  loading?: boolean;
 }
 
-function ExperienceCard({ experience, onViewDetails, loading = false }: ExperienceCardProps) {
-  if (loading) {
-    return (
-      <Card className="w-full">
-        <CardHeader>
-          <Skeleton className="h-7 w-3/4 mb-2" />
-          <Skeleton className="h-5 w-1/2" />
-        </CardHeader>
-        <CardContent>
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-2/3" />
-        </CardContent>
-        <CardFooter>
-          <Skeleton className="h-9 w-32" />
-        </CardFooter>
-      </Card>
-    );
-  }
+function ExperienceCard({ experience, onViewDetails }: ExperienceCardProps) {
+  // Handle click with prevent default to avoid scrolling issues
+  const handleViewDetailsClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    onViewDetails(id);
+  };
 
   return (
     <Card className="w-full">
@@ -49,7 +33,7 @@ function ExperienceCard({ experience, onViewDetails, loading = false }: Experien
       <CardFooter>
         <Button
           variant="outline"
-          onClick={() => onViewDetails(experience.id)}
+          onClick={(e) => handleViewDetailsClick(e, experience.id)}
         >
           View Details
         </Button>
@@ -63,15 +47,11 @@ interface ExperienceProps {
 }
 
 export default function Experience({ onViewDetails }: ExperienceProps) {
-  const [loading, setLoading] = useState(false);
+  // Removed loading state as we'll handle it in the detail view
 
-  // Handle view details with loading state
+  // Immediately navigate to the detail view
   const handleViewDetails = (id: string) => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      onViewDetails(id);
-    }, 500);
+    onViewDetails(id);
   };
 
   return (
@@ -84,7 +64,6 @@ export default function Experience({ onViewDetails }: ExperienceProps) {
               key={exp.id}
               experience={exp}
               onViewDetails={handleViewDetails}
-              loading={loading}
             />
           ))}
         </div>
