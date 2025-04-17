@@ -25,11 +25,12 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden">
       <div
-        className="h-48 bg-cover bg-center"
+        className="h-64 w-full object-cover -mt-6 "
         style={{
           backgroundImage: `url(${project.image})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          objectFit: 'cover'
         }}
       />
       <CardHeader>

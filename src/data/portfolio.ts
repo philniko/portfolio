@@ -82,23 +82,23 @@ export const experiences = [
 export const projects = [
   {
     id: "proj1",
-    title: "E-commerce Platform",
+    title: "Smart Education Events System",
     description: "A full-featured e-commerce platform with product management, shopping cart, and payment processing.",
     fullDescription: `This e-commerce platform provides a complete solution for online stores. It features a responsive design, product catalog with filtering and search, shopping cart functionality, secure checkout with multiple payment options, user authentication, and an admin dashboard for managing products and orders.
 
     Key Features:
     • User authentication and profile management
     • Product catalog with categories, filtering, and search
-    • Shopping cart with persistent storage
     • Checkout process with shipping options
     • Payment processing using Stripe
     • Admin dashboard for product and order management
+• Shopping cart with persistent storage
     • Order tracking and history for customers
     • Responsive design that works across all devices`,
-    image: "/ecommerce-project.jpg",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API", "Redux", "JWT", "AWS S3"],
-    demoLink: "https://example.com/demo",
-    githubLink: "https://github.com/yourusername/ecommerce-project"
+    image: "/images/projects/sees-project.jpg",
+    technologies: ["NextJS", "React", "Django", "SQL", "Stripe API"],
+    demoLink: "https://youtu.be/0VI2L93K3ro",
+    githubLink: "https://github.com/wokidoo/SOEN-343-SEES"
   },
   {
     id: "proj2",
@@ -109,51 +109,49 @@ export const projects = [
     Key Features:
     • Responsive design that adapts to all screen sizes
     • Dark/light mode toggle
-    • Project showcase with filtering options
+    • Work experience showcade
+    • Project showcase
     • Skills section with categorized badges
-    • Contact form with validation
-    • Blog section for articles and tutorials
+    • Contact form with validation and email-sending API
     • Performance optimized with lazy loading
-    • SEO-friendly structure and metadata`,
-    image: "/portfolio-project.jpg",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Next.js", "Vercel"],
+    • SEO-friendly structure and metadata,
+    • Deployed with Vercel`,
+    image: "/images/projects/portfolio-project.jpg",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
     demoLink: "https://example.com/portfolio",
-    githubLink: "https://github.com/yourusername/portfolio-website"
+    githubLink: "https://github.com/philniko/portfolio"
   },
   {
     id: "proj3",
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team features.",
-    fullDescription: `A task management application designed for teams to collaborate efficiently. Users can create projects, assign tasks, set deadlines, track progress, and communicate within the platform. The app features real-time updates using Firebase, ensuring all team members stay synchronized.
+    title: "Retro Pomodoro",
+    description: "A minimalist, black and white Pomodoro timer application with a retro aesthetic. RetroPomodoro helps you maintain focus and productivity using the Pomodoro Technique with a stylish, distraction-free interface.",
+    fullDescription: `A minimalist, black and white Pomodoro timer application with a retro aesthetic. RetroPomodoro helps you maintain focus and productivity using the Pomodoro Technique with a stylish, distraction-free interface.
 
     Key Features:
-    • User authentication and team management
-    • Project creation and organization
-    • Task assignment with priority levels and deadlines
-    • Real-time updates and notifications
-    • Comment system for task discussions
-    • File attachment capabilities
-    • Kanban board view for visualizing workflow
-    • Progress tracking and reporting
-    • Mobile-responsive design`,
-    image: "/task-app-project.jpg",
-    technologies: ["Vue.js", "Firebase", "Firestore", "Tailwind CSS", "Vuex", "Firebase Auth", "Chart.js"],
+    • Minimalist black/white interface with CRT screen
+    • Cross-Platform (macOS, windows, linux)
+    • Analog + Digital display
+    • Start and end time display
+    • Work and break modes with customizable durations
+    • Desktop notifications`,
+    image: "/images/projects/retropomodoro-project.jpg",
+    technologies: ["JavaScript", "HTML", "CSS", "Electron", "Canvas API"],
     demoLink: "https://example.com/task-app",
-    githubLink: "https://github.com/yourusername/task-management"
+    githubLink: "https://github.com/philniko/retropomodoro"
   },
   {
     id: "proj4",
     title: "Weather Dashboard",
     description: "A weather dashboard that shows current conditions and forecasts for any location.",
-    fullDescription: `A weather dashboard application that provides current weather conditions and forecasts for any location worldwide. Users can search for cities, view detailed weather information, and save favorite locations for quick access. The app uses the OpenWeather API to fetch accurate weather data.
+    fullDescription: `A weather dashboard application that provides current weather conditions and forecasts for any location worldwide.Users can search for cities, view detailed weather information, and save favorite locations for quick access.The app uses the OpenWeather API to fetch accurate weather data.
 
     Key Features:
     • Location search with autocomplete
     • Current weather conditions display
-    • 5-day forecast with hourly breakdowns
+    • 5 - day forecast with hourly breakdowns
     • Interactive weather maps
     • Historical weather data charts
-    • Unit conversion (Celsius/Fahrenheit)
+    • Unit conversion(Celsius / Fahrenheit)
     • Favorite locations storage
     • Weather alerts and notifications
     • Responsive design for all devices`,
@@ -222,5 +220,5 @@ export const skillsData = {
 
 // Footer Information
 export const footerInfo = {
-  copyright: `© ${new Date().getFullYear()} Philippe Nikolov. All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} Philippe Nikolov.All rights reserved.`
 };
