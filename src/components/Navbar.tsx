@@ -24,8 +24,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm border-b py-3">
       <div className="w-full max-w-screen-xl mx-auto flex items-center justify-between px-4 md:px-6">
-        <div className="flex items-center gap-2 md:gap-3">
-          <Avatar className="size-8 md:size-10">
+        <div className="flex items-center gap-3 md:gap-3">
+          <Avatar className="size-10">
             {!imageLoaded && <Skeleton className="size-full rounded-full" />}
             <AvatarImage
               src={personalInfo.avatarImage}
@@ -37,8 +37,7 @@ export default function Navbar() {
           </Avatar>
           <span className="font-semibold text-base md:text-lg hidden sm:inline-block">{personalInfo.name}</span>
         </div>
-
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <NavigationMenu className="hidden sm:block">
             <NavigationMenuList>
               {navLinks.map((link) => (
@@ -54,13 +53,21 @@ export default function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <ModeToggle />
+          {/* Customized ModeToggle for mobile */}
+          <div className="scale-110 sm:scale-100">
+            <ModeToggle />
+          </div>
 
           {/* Mobile Navigation using shadcn Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="block sm:hidden">
-              <Button variant="outline" size="icon" className="relative h-9 w-9 flex items-center justify-center" aria-label="Menu">
-                <Menu className="h-[1.2rem] w-[1.2rem]" />
+              <Button
+                variant="outline"
+                size="icon"
+                className="relative h-10 w-10 flex items-center justify-center"
+                aria-label="Menu"
+              >
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </DropdownMenuTrigger>
@@ -69,7 +76,7 @@ export default function Navbar() {
                 <DropdownMenuItem key={link.name} asChild>
                   <a
                     href={link.href}
-                    className="cursor-pointer w-full"
+                    className="cursor-pointer w-full py-2"
                   >
                     {link.name}
                   </a>

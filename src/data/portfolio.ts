@@ -120,7 +120,7 @@ export const projects = [
     • Desktop notifications`,
     image: "/images/projects/retropomodoro-project.jpg",
     technologies: ["JavaScript", "HTML", "CSS", "Electron", "Canvas API"],
-    demoLink: "https://example.com/task-app",
+    // demoLink: "https://example.com/task-app",
     githubLink: "https://github.com/philniko/retropomodoro"
   },
 ];
