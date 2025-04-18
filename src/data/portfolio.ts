@@ -178,5 +178,5 @@ export const skillsData = {
 
 // Footer Information
 export const footerInfo = {
-  copyright: `© ${new Date().getFullYear()} Philippe Nikolov.All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} Philippe Nikolov. All rights reserved.`
 };

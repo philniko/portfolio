@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { personalInfo, navLinks } from "@/data/portfolio";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,12 +20,13 @@ import {
 
 export default function Navbar() {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm border-b py-3">
       <div className="w-full max-w-screen-xl mx-auto flex items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3 md:gap-3">
-          <Avatar className="size-10">
+          <Avatar className="size-11 sm:size-9">
             {!imageLoaded && <Skeleton className="size-full rounded-full" />}
             <AvatarImage
               src={personalInfo.avatarImage}
@@ -53,37 +54,36 @@ export default function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Customized ModeToggle for mobile */}
-          <div className="scale-110 sm:scale-100">
+          <div className="scale-120 sm:scale-100">
             <ModeToggle />
           </div>
-
           {/* Mobile Navigation using shadcn Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild className="block sm:hidden">
-              <Button
-                variant="outline"
-                size="icon"
-                className="relative h-10 w-10 flex items-center justify-center"
-                aria-label="Menu"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              {navLinks.map((link) => (
-                <DropdownMenuItem key={link.name} asChild>
-                  <a
-                    href={link.href}
-                    className="cursor-pointer w-full py-2"
-                  >
-                    {link.name}
-                  </a>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="scale-120 sm:scale-100">
+            <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <DropdownMenuTrigger asChild className="sm:hidden">
+                <Button
+                  variant="outline"
+                  size="icon"
+                >
+                  <Menu className={`h-[1.2rem] w-[1.2rem] transition-all ${isMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
+                  <X className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${isMenuOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`} />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {navLinks.map((link) => (
+                  <DropdownMenuItem key={link.name} asChild>
+                    <a
+                      href={link.href}
+                      className="cursor-pointer w-full py-2"
+                    >
+                      {link.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
     </header>
