@@ -41,7 +41,7 @@ export const experiences = [
     • Collaborated closely with cross-functional teams including Product Design, UX, and QA to deliver high-quality software releases
     • Implemented innovative solutions to improve user experience and system functionality
     • Gained deep expertise in enterprise-level software development methodologies`,
-    skills: [".NET", "C#", "SQL", "Angular", "TypeScript", "Handlebars", "Agile", "Full-Stack Development, DevOps"]
+    skills: [".NET", "C#", "SQL", "Angular", "TypeScript", "Handlebars", "Agile", "Full-Stack Development", "DevOps"]
   },
   {
     id: "exp2",
