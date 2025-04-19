@@ -1,11 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   return (
     <section id="home" className="py-20 flex flex-col items-center justify-center min-h-[80vh] text-center">
       <h1 className="text-4xl md:text-6xl font-bold mb-6">
-        Hi, I'm <span className="text-primary">{personalInfo.name}</span>
+        <span>Hi, I'm </span>
+        <TypeAnimation
+          sequence={[
+            "",
+            500,
+            personalInfo.firstName + " " + personalInfo.lastName,
+            1000,
+            personalInfo.firstName,
+            500,
+            personalInfo.firstNameAbv,
+            1000,
+            personalInfo.firstNameAbv + " 👋"
+          ]}
+          wrapper="span"
+          cursor={true}
+          repeat={0}
+          className="inline-block text-primary"
+        />
       </h1>
       <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8">
         {personalInfo.title}

@@ -1,6 +1,8 @@
 // Personal Information
 export const personalInfo = {
-  name: "Philippe Nikolov",
+  firstName: "Philippe",
+  firstNameAbv: "Phil",
+  lastName: "Nikolov",
   title: "Software Engineer",
   email: "philippe.nikolov@outlook.com",
   location: "Montreal, QC",

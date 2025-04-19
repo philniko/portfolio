@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h3 className="text-xl font-bold mb-2">{personalInfo.name}</h3>
+            <h3 className="text-xl font-bold mb-2">{personalInfo.firstName + " " + personalInfo.lastName}</h3>
             <p className="text-muted-foreground">{personalInfo.title}</p>
           </div>
           <div className="flex space-x-4">

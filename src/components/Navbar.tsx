@@ -30,13 +30,13 @@ export default function Navbar() {
             {!imageLoaded && <Skeleton className="size-full rounded-full" />}
             <AvatarImage
               src={personalInfo.avatarImage}
-              alt={personalInfo.name}
+              alt={personalInfo.firstName + " " + personalInfo.lastName}
               onLoad={() => setImageLoaded(true)}
               className={imageLoaded ? "opacity-100" : "opacity-0"}
             />
             <AvatarFallback>{personalInfo.avatarInitials}</AvatarFallback>
           </Avatar>
-          <span className="font-semibold text-base md:text-lg hidden sm:inline-block">{personalInfo.name}</span>
+          <span className="font-semibold text-base md:text-lg hidden sm:inline-block">{personalInfo.firstName + " " + personalInfo.lastName}</span>
         </div>
         <div className="flex items-center gap-3 md:gap-4">
           <NavigationMenu className="hidden sm:block">
