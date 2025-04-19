@@ -1,4 +1,3 @@
-// src/components/ScrollAnimationWrapper.tsx
 import { motion, useInView, Variants } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
@@ -14,7 +13,7 @@ interface ScrollAnimationWrapperProps {
   staggerDelay?: number;
   repeat?: boolean;
   threshold?: number;
-  margin?: string;
+  margin?: string; // Simple string type for useInView margin
 }
 
 const animations: Record<string, Variants> = {
@@ -121,12 +120,10 @@ export default function ScrollAnimationWrapper({
   margin = "-50px",
 }: ScrollAnimationWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);
-  // Make sure the element is always visible on initial render
   const isInView = useInView(ref, {
     once: !repeat,
-    margin: margin,
-    amount: threshold,
-    fallbackInView: true // This ensures the element is always visible if IntersectionObserver fails
+    margin: margin as any, // Type assertion to bypass strict typing
+    amount: threshold
   });
 
   const customValues = { initialOpacity, initialTranslation };
