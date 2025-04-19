@@ -120,15 +120,21 @@ export default function ScrollAnimationWrapper({
   margin = "-50px",
 }: ScrollAnimationWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);
+
+  // Use asymmetric margins for better scroll behavior
+  const rootMargin = margin.startsWith('-')
+    ? `${margin} 0px 0px 0px` // Negative margin only on top
+    : margin;
+
   const isInView = useInView(ref, {
     once: !repeat,
-    margin: margin as any, // Type assertion to bypass strict typing
+    margin: rootMargin as any, // Type assertion to bypass strict typing
     amount: threshold
   });
 
   const customValues = { initialOpacity, initialTranslation };
-
   const containerVariants: Variants = {
+
     hidden: {},
     visible: {
       transition: {
