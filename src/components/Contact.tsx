@@ -15,6 +15,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { CheckCircle } from "lucide-react";
+import ScrollAnimationWrapper from "./ScrollAnimationWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Define the form schema with Zod for validation
 const formSchema = z.object({
@@ -75,9 +77,23 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
+        <ScrollAnimationWrapper
+          animation="fadeUp"
+          repeat={true}
+          threshold={0.2}
+          margin="-100px"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
+        </ScrollAnimationWrapper>
 
-        <div className="max-w-xl mx-auto">
+        <ScrollAnimationWrapper
+          animation="fadeUp"
+          delay={0.2}
+          className="max-w-xl mx-auto"
+          repeat={true}
+          threshold={0.1}
+          margin="-150px"
+        >
           {/* Contact Form */}
           <Card>
             <CardHeader>
@@ -151,12 +167,20 @@ export default function Contact() {
                     <p className="text-destructive text-sm">{form.formState.errors.root.message}</p>
                   )}
 
-                  {isSubmitted && (
-                    <div className="flex items-center gap-2 text-green-600 text-sm bg-green-50 p-3 rounded-md">
-                      <CheckCircle className="h-5 w-5" />
-                      <span>Message sent successfully! I'll get back to you soon.</span>
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {isSubmitted && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex items-center gap-2 text-green-600 text-sm bg-green-50 p-3 rounded-md"
+                      >
+                        <CheckCircle className="h-5 w-5" />
+                        <span>Message sent successfully! I'll get back to you soon.</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
                   <Button
                     type="submit"
@@ -169,7 +193,7 @@ export default function Contact() {
               </Form>
             </CardContent>
           </Card>
-        </div>
+        </ScrollAnimationWrapper>
       </div>
     </section>
   );

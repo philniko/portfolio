@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -17,13 +18,54 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Navbar() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { scrollY } = useScroll();
+  const headerBackground = useTransform(
+    scrollY,
+    [0, 100],
+    ["rgba(var(--background-rgb), 0.8)", "rgba(var(--background-rgb), 0.95)"]
+  );
+
+  const headerShadow = useTransform(
+    scrollY,
+    [0, 100],
+    ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 6px rgba(0,0,0,0.1)"]
+  );
+
+  const headerPadding = useTransform(
+    scrollY,
+    [0, 100],
+    ["0.75rem", "0.5rem"]
+  );
+
+  const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
+    if (link.href.startsWith('#')) {
+      e.preventDefault();
+      if (link.href === '#home') {
+        // For home link, always scroll to the very top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // For other links, use the smoothScrollTo function
+        smoothScrollTo(link.href.slice(1));
+      }
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm border-b py-3">
+    <motion.header
+      className="sticky top-0 z-10 w-full border-b py-3 backdrop-blur-sm"
+      style={{
+        backgroundColor: headerBackground,
+        boxShadow: headerShadow,
+        paddingTop: headerPadding,
+        paddingBottom: headerPadding,
+      }}
+    >
       <div className="w-full max-w-screen-xl mx-auto flex items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3 md:gap-3">
           <Avatar className="size-11 sm:size-9">
@@ -46,6 +88,7 @@ export default function Navbar() {
                   <NavigationMenuLink
                     href={link.href}
                     className="px-2 md:px-3 py-2 text-sm md:text-base"
+                    onClick={(e) => handleNavClick(e, link)}
                   >
                     {link.name}
                   </NavigationMenuLink>
@@ -76,6 +119,19 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       className="cursor-pointer w-full py-2"
+                      onClick={(e) => {
+                        if (link.href.startsWith('#')) {
+                          e.preventDefault();
+                          setIsMenuOpen(false);
+                          if (link.href === '#home') {
+                            // For home link, always scroll to the very top
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          } else {
+                            // For other links, use the smoothScrollTo function
+                            smoothScrollTo(link.href.slice(1));
+                          }
+                        }
+                      }}
                     >
                       {link.name}
                     </a>
@@ -86,6 +142,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

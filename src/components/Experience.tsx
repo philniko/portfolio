@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { experiences } from "@/data/portfolio";
+import ScrollAnimationWrapper, { ScrollAnimationItem } from "./ScrollAnimationWrapper";
 
 interface ExperienceCardProps {
   experience: typeof experiences[0];
@@ -22,15 +23,15 @@ function ExperienceCard({ experience, onViewDetails }: ExperienceCardProps) {
   };
 
   return (
-    <Card className="w-full">
+    <Card className="w-full h-full flex flex-col">
       <CardHeader>
         <CardTitle>{experience.title}</CardTitle>
         <CardDescription>{experience.company} • {experience.period}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1">
         <p>{experience.description}</p>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="mt-auto">
         <Button
           variant="outline"
           onClick={(e) => handleViewDetailsClick(e, experience.id)}
@@ -55,16 +56,37 @@ export default function Experience({ onViewDetails }: ExperienceProps) {
   return (
     <section id="experience" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Work Experience</h2>
-        <div className={`${gridLayoutClass} gap-6`}>
-          {experiences.map((exp) => (
-            <ExperienceCard
+        <ScrollAnimationWrapper
+          animation="fadeUp"
+          repeat={true}
+          threshold={0.2}
+          margin="-100px"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">Work Experience</h2>
+        </ScrollAnimationWrapper>
+
+        <ScrollAnimationWrapper
+          className={`${gridLayoutClass} gap-6`}
+          staggerChildren={true}
+          staggerDelay={0.15}
+          repeat={true}
+          threshold={0.1}
+          margin="-150px"
+        >
+          {experiences.map((exp, index) => (
+            <ScrollAnimationItem
               key={exp.id}
-              experience={exp}
-              onViewDetails={onViewDetails}
-            />
+              animation="fadeUp"
+              index={index}
+              className="h-full"
+            >
+              <ExperienceCard
+                experience={exp}
+                onViewDetails={onViewDetails}
+              />
+            </ScrollAnimationItem>
           ))}
-        </div>
+        </ScrollAnimationWrapper>
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ function App() {
     // Reset scroll to top for detail views
     requestAnimationFrame(() => {
       if (newView === "project-detail" || newView === "experience-detail") {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
 
@@ -86,11 +86,6 @@ function App() {
 
     // Immediately navigate back to home
     setView("home");
-
-    // Restore previous scroll position after rendering home view
-    requestAnimationFrame(() => {
-      window.scrollTo(0, scrollPositionRef.current);
-    });
   };
 
   // Project view handler

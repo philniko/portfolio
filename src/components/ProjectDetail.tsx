@@ -17,6 +17,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { projects } from "@/data/portfolio";
+import { motion } from "framer-motion";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 // Transform projects array into a lookup object for easier access by ID
 const projectsData = projects.reduce((acc, project) => {
@@ -34,6 +36,32 @@ interface ProjectDetailProps {
 
 export default function ProjectDetail({ id, onBack, loading = false }: ProjectDetailProps) {
   const project = projectsData[id];
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onBack();
+    // Wait for the back navigation to complete, then scroll to top
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
+  };
+
+  const handleProjectsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onBack();
+    // Wait for the back navigation to complete, then scroll to projects section
+    setTimeout(() => {
+      smoothScrollTo('projects');
+    }, 50);
+  };
+
+  const handleBackToProjects = () => {
+    onBack();
+    // Wait for the back navigation to complete, then scroll to projects section
+    setTimeout(() => {
+      smoothScrollTo('projects');
+    }, 50);
+  };
 
   if (loading) {
     return (
@@ -79,24 +107,35 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Breadcrumb className="mb-6">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#home">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#projects" onClick={onBack}>Projects</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{project.title}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#home" onClick={handleHomeClick}>Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#projects" onClick={handleProjectsClick}>Projects</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{project.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
+        <motion.div
+          className="lg:col-span-2"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <Card className="overflow-hidden">
             <div
               className="h-64 bg-cover bg-center -mt-6"
@@ -115,9 +154,14 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-1">
+        <motion.div
+          className="lg:col-span-1"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <Card>
             <CardHeader>
               <CardTitle>Project Details</CardTitle>
@@ -126,8 +170,15 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
               <div>
                 <CardDescription className="mb-2">Technologies Used</CardDescription>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                  {project.technologies.map((tech, index) => (
+                    <motion.div
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.6 + index * 0.05 }}
+                    >
+                      <Badge variant="secondary">{tech}</Badge>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -157,14 +208,14 @@ export default function ProjectDetail({ id, onBack, loading = false }: ProjectDe
                 <Button
                   className="w-full mt-4"
                   variant="secondary"
-                  onClick={onBack}
+                  onClick={handleBackToProjects}
                 >
                   Back to Projects
                 </Button>
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

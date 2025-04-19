@@ -2,6 +2,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { skillsData } from "@/data/portfolio";
+import ScrollAnimationWrapper, { ScrollAnimationItem } from "./ScrollAnimationWrapper";
+import { motion } from "framer-motion";
 import "devicon/devicon.min.css";
 
 // Mapping of individual skills to their DevIcon classes
@@ -63,7 +65,7 @@ interface SkillCategoryProps {
 function SkillCategory({ category, skills, loading = false }: SkillCategoryProps) {
   if (loading) {
     return (
-      <Card>
+      <Card className="h-full">
         <CardHeader>
           <Skeleton className="h-7 w-1/3" />
         </CardHeader>
@@ -79,19 +81,26 @@ function SkillCategory({ category, skills, loading = false }: SkillCategoryProps
   }
 
   return (
-    <Card>
+    <Card className="h-full flex flex-col">
       <CardHeader>
         <CardTitle>{category}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1">
         <div className="flex flex-wrap gap-2 items-center">
-          {skills.map(skill => (
-            <Badge key={skill} variant="secondary" className="flex items-center gap-2">
-              {skillIcons[skill] && (
-                <i className={`devicon ${skillIcons[skill]} colored text-lg`}></i>
-              )}
-              {skill}
-            </Badge>
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+            >
+              <Badge variant="secondary" className="flex items-center gap-2">
+                {skillIcons[skill] && (
+                  <i className={`devicon ${skillIcons[skill]} colored text-lg`}></i>
+                )}
+                {skill}
+              </Badge>
+            </motion.div>
           ))}
         </div>
       </CardContent>
@@ -104,17 +113,38 @@ export default function Skills() {
   return (
     <section id="skills" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Skills & Technologies</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Object.entries(skillsData).map(([category, skills]) => (
-            <SkillCategory
+        <ScrollAnimationWrapper
+          animation="fadeUp"
+          repeat={true}
+          threshold={0.2}
+          margin="-100px"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">Skills & Technologies</h2>
+        </ScrollAnimationWrapper>
+
+        <ScrollAnimationWrapper
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          staggerChildren={true}
+          staggerDelay={0.15}
+          repeat={true}
+          threshold={0.1}
+          margin="-150px"
+        >
+          {Object.entries(skillsData).map(([category, skills], index) => (
+            <ScrollAnimationItem
               key={category}
-              category={category}
-              skills={skills}
-              loading={loading}
-            />
+              animation="scale"
+              index={index}
+              className="h-full"
+            >
+              <SkillCategory
+                category={category}
+                skills={skills}
+                loading={loading}
+              />
+            </ScrollAnimationItem>
           ))}
-        </div>
+        </ScrollAnimationWrapper>
       </div>
     </section>
   );
