@@ -35,14 +35,15 @@ export default function Hero() {
         <span>Hi, I'm </span>
         <TypeAnimation
           sequence={[
+            500,
             "",
             500,
             personalInfo.firstName + " " + personalInfo.lastName,
-            1000,
+            500,
             personalInfo.firstName,
             500,
             personalInfo.firstNameAbv,
-            1000,
+            0,
             personalInfo.firstNameAbv + " 👋"
           ]}
           wrapper="span"
