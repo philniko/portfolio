@@ -85,7 +85,8 @@ export const projects = [
     image: "/images/projects/sees-project.jpg",
     technologies: ["NextJS", "React", "Django", "SQL", "Stripe API"],
     demoLink: "https://youtu.be/0VI2L93K3ro",
-    githubLink: "https://github.com/wokidoo/SOEN-343-SEES"
+    githubLink: "https://github.com/wokidoo/SOEN-343-SEES",
+    currentlyWorkingOn: false
   },
   {
     id: "proj2",
@@ -105,7 +106,8 @@ export const projects = [
     • Deployed with Vercel`,
     image: "/images/projects/portfolio-project.jpg",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
-    githubLink: "https://github.com/philniko/portfolio"
+    githubLink: "https://github.com/philniko/portfolio",
+    currentlyWorkingOn: false
   },
   {
     id: "proj3",
@@ -123,8 +125,32 @@ export const projects = [
     image: "/images/projects/retropomodoro-project.jpg",
     technologies: ["JavaScript", "HTML", "CSS", "Electron", "Canvas API"],
     // demoLink: "https://example.com/task-app",
-    githubLink: "https://github.com/philniko/retropomodoro"
+    githubLink: "https://github.com/philniko/retropomodoro",
+    currentlyWorkingOn: false
   },
+  {
+    id: "proj4",
+    title: "PickUp",
+    description: "A map-based social media application for organizing and joining sports meetups in your area, similar to Snapmap but focused on sports events.",
+    fullDescription: `SportMeet is a cross-platform mobile application that connects sports enthusiasts through location-based event discovery. Users can create, join, and manage sports meetups in their area through an intuitive map interface, making it easy to find pickup games and organize sporting events.
+
+    Key Features:
+    • Interactive map interface showing nearby sports events
+    • Real-time location sharing for active events
+    • Event creation with sport type, skill level, and participant limits
+    • User profiles with sports preferences and skill ratings
+    • In-app messaging for event coordination
+    • Push notifications for nearby events and updates
+    • Authentication and user management with Supabase
+    • Cross-platform compatibility for iOS and Android
+    • Geolocation services with customizable search radius
+    • Event filtering by sport type, time, and skill level`,
+    image: "/images/projects/sportmeet-project.jpg",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "React Native Maps", "Push Notifications API"],
+    // demoLink: "https://example.com/sportmeet",
+    githubLink: "https://github.com/philniko/pickup",
+    currentlyWorkingOn: true
+  }
 ];
 
 // Skills Data
@@ -135,6 +161,7 @@ export const skillsData = {
     "JavaScript",
     "TypeScript",
     "React",
+    "React Native",
     "Next.js",
     "Angular",
     "Tailwind CSS",
@@ -157,6 +184,7 @@ export const skillsData = {
     "MySQL",
     "SQLite",
     "Firebase",
+    "Supabase",
   ],
   "DevOps & Tools": [
     "Git",
@@ -168,6 +196,7 @@ export const skillsData = {
     "Handlebars",
     "Jest",
     "Vite",
+    "Expo",
     "Vscode",
     "Neovim"
   ],
@@ -180,5 +209,5 @@ export const skillsData = {
 
 // Footer Information
 export const footerInfo = {
-  copyright: `© ${new Date().getFullYear()} Philippe Nikolov. All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} Philippe Nikolov. All rights reserved.`,
 };

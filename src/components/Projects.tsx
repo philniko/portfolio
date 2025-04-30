@@ -24,7 +24,14 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   };
 
   return (
-    <Card className="overflow-hidden h-full flex flex-col">
+    <Card className="overflow-hidden h-full flex flex-col relative">
+      {project.currentlyWorkingOn && (
+        <div className="absolute top-2 right-2 z-10">
+          <Badge variant="default" className="bg-[#FF1F56]">
+            Currently Working On
+          </Badge>
+        </div>
+      )}
       <div
         className="h-64 w-full object-cover -mt-6"
         style={{
@@ -81,7 +88,6 @@ export default function Projects({ onViewDetails }: ProjectsProps) {
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
         </ScrollAnimationWrapper>
-
         <ScrollAnimationWrapper
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           staggerChildren={true}

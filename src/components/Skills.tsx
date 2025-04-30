@@ -14,6 +14,7 @@ const skillIcons: { [key: string]: string } = {
   "JavaScript": "devicon-javascript-plain",
   "TypeScript": "devicon-typescript-plain",
   "React": "devicon-react-original",
+  "React Native": "devicon-react-original",
   "Next.js": "devicon-nextjs-original-wordmark",
   "Angular": "devicon-angularjs-plain",
   "Tailwind CSS": "devicon-tailwindcss-plain",
@@ -36,6 +37,7 @@ const skillIcons: { [key: string]: string } = {
   "MySQL": "devicon-mysql-plain",
   "SQLite": "devicon-sqlite-plain",
   "Firebase": "devicon-firebase-plain",
+  "Supabase": "devicon-supabase-plain",
 
   // DevOps & Tools
   "Git": "devicon-git-plain",
@@ -47,6 +49,7 @@ const skillIcons: { [key: string]: string } = {
   "Handlebars": "devicon-handlebars-plain",
   "Jest": "devicon-jest-plain",
   "Vite": "devicon-vitejs-plain",
+  "Expo": "devicon-react-original", // Using React icon for Expo since it's based on React Native
   "Vscode": "devicon-vscode-plain",
   "Neovim": "devicon-neovim-plain",
 
