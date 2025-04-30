@@ -70,7 +70,7 @@ export const projects = [
   {
     id: "proj1",
     title: "Smart Education Events System",
-    description: "A full-featured e-commerce platform with product management, shopping cart, and payment processing.",
+    description: "An event organization platform with event management and attendance, along with payment processing.",
     fullDescription: `This e-commerce platform provides a complete solution for online stores. It features a responsive design, product catalog with filtering and search, shopping cart functionality, secure checkout with multiple payment options, user authentication, and an admin dashboard for managing products and orders.
 
     Key Features:
