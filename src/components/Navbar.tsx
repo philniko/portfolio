@@ -74,7 +74,7 @@ export default function Navbar() {
               src={personalInfo.avatarImage}
               alt={personalInfo.firstName + " " + personalInfo.lastName}
               onLoad={() => setImageLoaded(true)}
-              className={imageLoaded ? "opacity-100" : "opacity-0"}
+              className={`object-cover ${imageLoaded ? "opacity-100" : "opacity-0"}`}
             />
             <AvatarFallback>{personalInfo.avatarInitials}</AvatarFallback>
           </Avatar>
