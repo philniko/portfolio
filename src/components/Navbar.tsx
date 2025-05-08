@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import {
   NavigationMenu,
