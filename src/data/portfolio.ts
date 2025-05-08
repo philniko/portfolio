@@ -69,6 +69,29 @@ export const experiences = [
 export const projects = [
   {
     id: "proj1",
+    title: "PickUp",
+    description: "A map-based social media application for organizing and joining sports meetups in your area, similar to Snapmap but focused on sports events.",
+    fullDescription: `PickUp is a cross-platform mobile application that connects sports enthusiasts through location-based event discovery. Users can create, join, and manage sports meetups in their area through an intuitive map interface, making it easy to find pickup games and organize sporting events.
+
+    Key Features:
+    • Interactive map interface showing nearby sports events
+    • Real-time location sharing for active events
+    • Event creation with sport type, skill level, and participant limits
+    • User profiles with sports preferences and skill ratings
+    • In-app messaging for event coordination
+    • Push notifications for nearby events and updates
+    • Authentication and user management with Supabase
+    • Cross-platform compatibility for iOS and Android
+    • Geolocation services with customizable search radius
+    • Event filtering by sport type, time, and skill level`,
+    image: "/images/projects/pickup.png",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "React Native Maps", "Push Notifications API"],
+    // demoLink: "https://example.com/sportmeet",
+    githubLink: "https://github.com/philniko/pickup",
+    currentlyWorkingOn: true
+  },
+  {
+    id: "proj2",
     title: "Smart Education Events System",
     description: "An event organization platform with event management and attendance, along with payment processing.",
     fullDescription: `This e-commerce platform provides a complete solution for online stores. It features a responsive design, product catalog with filtering and search, shopping cart functionality, secure checkout with multiple payment options, user authentication, and an admin dashboard for managing products and orders.
@@ -86,27 +109,6 @@ export const projects = [
     technologies: ["NextJS", "React", "Django", "SQL", "Stripe API"],
     demoLink: "https://youtu.be/0VI2L93K3ro",
     githubLink: "https://github.com/wokidoo/SOEN-343-SEES",
-    currentlyWorkingOn: false
-  },
-  {
-    id: "proj2",
-    title: "Portfolio Website",
-    description: "A responsive portfolio website built with modern technologies showcasing projects and skills.",
-    fullDescription: `A modern, responsive portfolio website designed to showcase my projects, skills, and professional experience. The site features a clean, intuitive interface with smooth animations and transitions, optimized performance, and accessibility features.
-
-    Key Features:
-    • Responsive design that adapts to all screen sizes
-    • Dark/light mode toggle
-    • Work experience showcade
-    • Project showcase
-    • Skills section with categorized badges
-    • Contact form with validation and email-sending API
-    • Performance optimized with lazy loading
-    • SEO-friendly structure and metadata,
-    • Deployed with Vercel`,
-    image: "/images/projects/portfolio-project.jpg",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
-    githubLink: "https://github.com/philniko/portfolio",
     currentlyWorkingOn: false
   },
   {
@@ -130,27 +132,26 @@ export const projects = [
   },
   {
     id: "proj4",
-    title: "PickUp",
-    description: "A map-based social media application for organizing and joining sports meetups in your area, similar to Snapmap but focused on sports events.",
-    fullDescription: `SportMeet is a cross-platform mobile application that connects sports enthusiasts through location-based event discovery. Users can create, join, and manage sports meetups in their area through an intuitive map interface, making it easy to find pickup games and organize sporting events.
+    title: "Portfolio Website",
+    description: "A responsive portfolio website built with modern technologies showcasing projects and skills.",
+    fullDescription: `A modern, responsive portfolio website designed to showcase my projects, skills, and professional experience. The site features a clean, intuitive interface with smooth animations and transitions, optimized performance, and accessibility features.
 
     Key Features:
-    • Interactive map interface showing nearby sports events
-    • Real-time location sharing for active events
-    • Event creation with sport type, skill level, and participant limits
-    • User profiles with sports preferences and skill ratings
-    • In-app messaging for event coordination
-    • Push notifications for nearby events and updates
-    • Authentication and user management with Supabase
-    • Cross-platform compatibility for iOS and Android
-    • Geolocation services with customizable search radius
-    • Event filtering by sport type, time, and skill level`,
-    image: "/images/projects/sportmeet-project.jpg",
-    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "React Native Maps", "Push Notifications API"],
-    // demoLink: "https://example.com/sportmeet",
-    githubLink: "https://github.com/philniko/pickup",
-    currentlyWorkingOn: true
+    • Responsive design that adapts to all screen sizes
+    • Dark/light mode toggle
+    • Work experience showcade
+    • Project showcase
+    • Skills section with categorized badges
+    • Contact form with validation and email-sending API
+    • Performance optimized with lazy loading
+    • SEO-friendly structure and metadata,
+    • Deployed with Vercel`,
+    image: "/images/projects/portfolio-project.jpg",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
+    githubLink: "https://github.com/philniko/portfolio",
+    currentlyWorkingOn: false
   }
+
 ];
 
 // Skills Data

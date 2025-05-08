@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import {
   NavigationMenu,
@@ -20,7 +20,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function Navbar() {
+interface NavbarProps {
+  currentView: string;
+  onNavigate: (view: string) => void;
+}
+
+export default function Navbar({ currentView = "home", onNavigate }: NavbarProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,12 +51,31 @@ export default function Navbar() {
   const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
     if (link.href.startsWith('#')) {
       e.preventDefault();
-      if (link.href === '#home') {
-        // For home link, always scroll to the very top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Close mobile menu if open
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+
+      // If we're in a detail view, navigate back to home view first
+      if (currentView !== "home") {
+        onNavigate("home");
+
+        // Wait for the view change to complete before scrolling
+        setTimeout(() => {
+          if (link.href === '#home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            smoothScrollTo(link.href.slice(1));
+          }
+        }, 50);
       } else {
-        // For other links, use the smoothScrollTo function
-        smoothScrollTo(link.href.slice(1));
+        // If already on home view, just scroll
+        if (link.href === '#home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          smoothScrollTo(link.href.slice(1));
+        }
       }
     }
   };
@@ -119,19 +143,7 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       className="cursor-pointer w-full py-2"
-                      onClick={(e) => {
-                        if (link.href.startsWith('#')) {
-                          e.preventDefault();
-                          setIsMenuOpen(false);
-                          if (link.href === '#home') {
-                            // For home link, always scroll to the very top
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          } else {
-                            // For other links, use the smoothScrollTo function
-                            smoothScrollTo(link.href.slice(1));
-                          }
-                        }
-                      }}
+                      onClick={(e) => handleNavClick(e, link)}
                     >
                       {link.name}
                     </a>

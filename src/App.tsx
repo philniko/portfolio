@@ -7,6 +7,8 @@ import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
@@ -136,9 +138,13 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Layout>
-        {renderContent()}
-      </Layout>
+      <div className="flex flex-col min-h-screen">
+        <Navbar currentView={view} onNavigate={setView} />
+        <main className="flex-1">
+          {renderContent()}
+        </main>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }
