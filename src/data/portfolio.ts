@@ -29,7 +29,7 @@ export const navLinks = [
 export const experiences = [
   {
     id: "exp1",
-    title: "Software Engineering Trainee",
+    title: "Software Engineer",
     company: "Datex",
     period: "May 2024 - May 2025",
     location: "Montreal, Canada",
