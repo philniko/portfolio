@@ -113,6 +113,26 @@ export const projects = [
   },
   {
     id: "proj3",
+    title: "Mauve Films Website",
+    description: "A sleek, modern website built for Mauve Films to showcase their creative portfolio and studio services.",
+    fullDescription: `The Mauve Films website is a modern, responsive web platform built to reflect the studio's creative vision and film expertise. Designed with a minimalist aesthetic and smooth transitions, the site highlights the team’s work and services through immersive visuals and intuitive navigation.
+
+  Key Features:
+  • Responsive design for all screen sizes
+  • Smooth page transitions and animations
+  • Project showcase with embedded video reels
+  • Custom sections for services, team, and contact
+  • Built using modern frontend tooling (Vite, React, Tailwind)
+  • SEO-optimized with clean markup and metadata
+  • Deployed and performance-optimized for fast load times`,
+    image: "/images/projects/mauve-films.png",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    // githubLink: "https://github.com/philniko/mauvefilms", // Replace with real repo if public
+    demoLink: "https://mauve-films.com",
+    currentlyWorkingOn: false
+  },
+  {
+    id: "proj4",
     title: "Retro Pomodoro",
     description: "A minimalist, black and white Pomodoro timer application with a retro aesthetic. RetroPomodoro helps you maintain focus and productivity using the Pomodoro Technique with a stylish, distraction-free interface.",
     fullDescription: `A minimalist, black and white Pomodoro timer application with a retro aesthetic. RetroPomodoro helps you maintain focus and productivity using the Pomodoro Technique with a stylish, distraction-free interface.
@@ -131,7 +151,7 @@ export const projects = [
     currentlyWorkingOn: false
   },
   {
-    id: "proj4",
+    id: "proj5",
     title: "Portfolio Website",
     description: "A responsive portfolio website built with modern technologies showcasing projects and skills.",
     fullDescription: `A modern, responsive portfolio website designed to showcase my projects, skills, and professional experience. The site features a clean, intuitive interface with smooth animations and transitions, optimized performance, and accessibility features.
@@ -150,8 +170,7 @@ export const projects = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Vite", "Vercel"],
     githubLink: "https://github.com/philniko/portfolio",
     currentlyWorkingOn: false
-  }
-
+  },
 ];
 
 // Skills Data
